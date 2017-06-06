@@ -13,7 +13,7 @@ extension UIView {
         case open, closed
     }
     
-    func fold(withTransparency: Bool, completionHandler:(()->Void)?, inDirection: FoldDirection ) {
+    func fold(_ withTransparency: Bool, completionHandler:(()->Void)?, inDirection: FoldDirection ) {
         let topAndBottomView = self.prepareSplitImage()
         let topHalfView = topAndBottomView[0]
         let bottomHalfView = topAndBottomView[1]

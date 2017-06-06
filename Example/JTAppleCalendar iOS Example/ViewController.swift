@@ -122,7 +122,7 @@ class ViewController: UIViewController {
         calendarView.reloadData()
     }
     
-    @IBAction func toggleStrictBoundary(sender: UIButton) {
+    @IBAction func toggleStrictBoundary(_ sender: UIButton) {
         hasStrictBoundaries = !hasStrictBoundaries
         if hasStrictBoundaries {
             sender.tintColor = enabledColor
@@ -238,7 +238,7 @@ class ViewController: UIViewController {
     }
     
     var rangeSelectedDates: [Date] = []
-    func didStartRangeSelecting(gesture: UILongPressGestureRecognizer) {
+    func didStartRangeSelecting(_ gesture: UILongPressGestureRecognizer) {
         let point = gesture.location(in: gesture.view!)
         rangeSelectedDates = calendarView.selectedDates
         if let cellState = calendarView.cellStatus(at: point) {
@@ -312,14 +312,14 @@ class ViewController: UIViewController {
         monthLabel.text = monthName + " " + String(year)
     }
     
-    func handleCellConfiguration(cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelection(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
+    func handleCellConfiguration(_ cell: JTAppleCell?, cellState: CellState) {
+        handleCellSelection(cell, cellState: cellState)
+        handleCellTextColor(cell, cellState: cellState)
         prePostVisibility?(cellState, cell as? CellView)
     }
     
     // Function to handle the text color of the calendar
-    func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
+    func handleCellTextColor(_ view: JTAppleCell?, cellState: CellState) {
         guard let myCustomCell = view as? CellView  else {
             return
         }
@@ -336,7 +336,7 @@ class ViewController: UIViewController {
     }
     
     // Function to handle the calendar selection
-    func handleCellSelection(view: JTAppleCell?, cellState: CellState) {
+    func handleCellSelection(_ view: JTAppleCell?, cellState: CellState) {
         guard let myCustomCell = view as? CellView else {return }
 //        switch cellState.selectedPosition() {
 //        case .full:
@@ -413,16 +413,16 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
             myCustomCell.backgroundColor = white
         }
         
-        handleCellConfiguration(cell: myCustomCell, cellState: cellState)
+        handleCellConfiguration(myCustomCell, cellState: cellState)
         return myCustomCell
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellConfiguration(cell: cell, cellState: cellState)
+        handleCellConfiguration(cell, cellState: cellState)
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellConfiguration(cell: cell, cellState: cellState)
+        handleCellConfiguration(cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
@@ -455,7 +455,7 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         return header
     }
     
-    func sizeOfDecorationView(indexPath: IndexPath) -> CGRect {
+    func sizeOfDecorationView(_ indexPath: IndexPath) -> CGRect {
         let stride = calendarView.frame.width * CGFloat(indexPath.section)
         return CGRect(x: stride + 5, y: 5, width: calendarView.frame.width - 10, height: calendarView.frame.height - 10)
     }

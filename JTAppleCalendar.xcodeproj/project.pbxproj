@@ -613,7 +613,7 @@
 				TargetAttributes = {
 					6B60DEBB1D5BDA46009174A2 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					6B60DEC91D5BDA74009174A2 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -626,7 +626,7 @@
 					6B60DF0A1D5BE834009174A2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = WE23L742P8;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					6B60DF201D5BE8A4009174A2 = {
